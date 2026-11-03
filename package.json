@@ -5,14 +5,12 @@
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
-    "format": "prettier --write \"src/**/*.js\" \"tests/**/*.js\" \"*.json\" \"*.md\" \"*.yml\" \"*.yaml\"",
-    "format:check": "prettier --check \"src/**/*.js\" \"tests/**/*.js\" \"*.json\" \"*.md\" \"*.yml\" \"*.yaml\"",
-    "test": "jest --runInBand --forceExit",
-    "test:coverage": "jest --runInBand --forceExit --coverage",
+    "start": "node init && node src/index.js",
+    "dev": "node init && nodemon src/index.js",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "test": "jest --runInBand --forceExit",
+    "test:coverage": "jest --runInBand --forceExit --coverage",
     "lint": "eslint src/ tests/",
     "lint:fix": "eslint src/ tests/ --fix"
   },
@@ -30,7 +28,10 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "collectCoverageFrom": ["src/**/*.js", "!src/index.js"],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js"
+    ],
     "coverageThreshold": {
       "global": {
         "lines": 95,
